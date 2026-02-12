@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Secure SD-WAN Cyber Dashboard</title>
+    <style>
+        body { font-family: Arial; background:#0f172a; color:white; text-align:center; }
+        .card { background:#1e293b; padding:20px; margin:20px auto; width:400px; border-radius:10px; }
+        .risk { font-size:28px; color:#f97316; }
+        .normal { color:#22c55e; }
+        .high { color:#ef4444; }
+    </style>
+</head>
+<body>
+
+<h1>🔐 AI-Driven STD-VAN Modernization Dashboard</h1>
+
+<div class="card">
+    <h2>Branch Status</h2>
+    <p>Connections: {{data.connections}}</p>
+    <p>Total Bytes: {{data.total_bytes}}</p>
+    <p>Avg Duration: {{data.avg_duration}} s</p>
+
+    <p class="risk">Risk Score: {{data.risk_score}}%</p>
+
+    <h3 class="{% if data.status=='HIGH RISK' %}high{% else %}normal{% endif %}">
+        {{data.status}}
+    </h3>
+</div>
+
+<p>API Endpoint: <code>/api/alert</code></p>
+
+</body>
+</html>
