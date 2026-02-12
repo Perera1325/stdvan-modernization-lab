@@ -6,6 +6,10 @@ services:
     image: ubuntu:22.04
     container_name: hq-core
     tty: true
+    cap_add:
+      - NET_ADMIN
+      - SYS_MODULE
+    privileged: true
     networks:
       - stdvan_net
 
@@ -13,6 +17,10 @@ services:
     image: ubuntu:22.04
     container_name: branch-01
     tty: true
+    cap_add:
+      - NET_ADMIN
+      - SYS_MODULE
+    privileged: true
     networks:
       - stdvan_net
 
@@ -20,16 +28,14 @@ services:
     image: ubuntu:22.04
     container_name: branch-02
     tty: true
-    networks:
-      - stdvan_net
-
-  warehouse:
-    image: ubuntu:22.04
-    container_name: warehouse-node
-    tty: true
+    cap_add:
+      - NET_ADMIN
+      - SYS_MODULE
+    privileged: true
     networks:
       - stdvan_net
 
 networks:
   stdvan_net:
     driver: bridge
+
