@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+
+  hq:
+    image: ubuntu:22.04
+    container_name: hq-core
+    tty: true
+    networks:
+      - stdvan_net
+
+  branch1:
+    image: ubuntu:22.04
+    container_name: branch-01
+    tty: true
+    networks:
+      - stdvan_net
+
+  branch2:
+    image: ubuntu:22.04
+    container_name: branch-02
+    tty: true
+    networks:
+      - stdvan_net
+
+  warehouse:
+    image: ubuntu:22.04
+    container_name: warehouse-node
+    tty: true
+    networks:
+      - stdvan_net
+
+networks:
+  stdvan_net:
+    driver: bridge
